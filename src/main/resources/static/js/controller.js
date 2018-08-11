@@ -1,7 +1,14 @@
 var app = angular.module('app', []);
-app.controller('controller', function($scope, $filter) {
-	$scope.clickfunction = function(){
-		var time = $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss Z');
-		$scope.welcome = "Time = " + time;		
-	}
+app.controller('controller', function($scope, $http, $filter) {
+	
+	$scope.getItems = function() {
+		$scope.items = [];
+		
+		$http.get("/allItems").then(function(response) {
+			$scope.items = response.data;
+			$scope.message = response.message;
+		}, function error(response) {
+			$scope.message = response.message;
+		})
+	}	
 });

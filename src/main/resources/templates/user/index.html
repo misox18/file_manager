@@ -21,7 +21,7 @@
   <link th:href="@{../vendors/pace-progress/css/pace.min.css}" rel="stylesheet" type="text/css">
 </head>
 
-<body class="app header-fixed sidebar-fixed sidebar-lg-show">
+<body class="app header-fixed sidebar-fixed sidebar-lg-show" ng-app="app" ng-controller="controller" data-ng-init="getItems()">
   <header class="app-header navbar navbar-expand-xl">
     <a class="navbar-brand mr-4" href="#">
       <img class="navbar-brand-full" th:src="@{../img/brand/logo.svg}" width="89" height="25" alt="CoreUI Logo">
@@ -36,12 +36,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Settings</a>
-      </li>
-      <li>
-      	<div ng-app="app" ng-controller="controller">
-			<button id="btn-id" ng-click="clickfunction()">Press for Time</button>
-			<p ng-bind="welcome"></p>
-		</div>
       </li>
     </ul>
     <ul class="nav ml-auto mr-5">
@@ -127,27 +121,27 @@
                    </div>
                  </div>
               </li>
-              <li class="list-group-item" th:each="item : ${allItems}">
+              <li class="list-group-item" ng-repeat="item in items">
               	<div class="row">
               		<div class="col-md-1 border-right">
               			<div class="text-center">
-              				<i class="fas fa-file fa-lg" style="color:black" th:if="${item.isFile}"></i>
-              			</div>              	
+              				<i class="fas fa-file fa-lg" style="color:black" ng-if="item.isFile"></i>
+              			</div>
               			<div class="text-center">
-              				<i class="fas fa-folder fa-lg" style="color:black" th:if="${item.isFolder}"></i>
-              			</div>		
-              		</div>
+              				<i class="fas fa-folder fa-lg" style="color:black" ng-if="item.isFolder"></i>
+              			</div>	           			
+              		</div>             	
               		<div class="col-md-3 border-right">
-              			<p class="text mb-0" th:text="${item.name}">error</p>
+              			<p class="text mb-0">{{item.name}}</p>
               		</div>
               		<div class="col-md-1 border-right">
-              			<p class="text mb-0" th:text="${item.suffix}">error</p>
+              			<p class="text mb-0">{{item.suffix}}</p>
               		</div>
               		<div class="col-md-6 border-right">
-              			<p class="text mb-0" th:text="${item.path}">error</p>
+              			<p class="text mb-0">{{item.path}}</p>
               		</div>
-              		<div class="col-md-1" th:if="${item.isFile}">
-              			<p class="text mb-0" th:text="${item.size}">error</p>
+              		<div class="col-md-1" ng-if="item.isFile">
+              			<p class="text mb-0">{{item.size}}</p>
               		</div>
               	</div>
               </li>
@@ -175,9 +169,8 @@
   <script th:src="@{../js/angular.min.js}" type="text/javascript"></script>
   <script th:src="@{../node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js}" type="text/javascript"></script>
   <script th:src="@{../node_modules/@coreui/coreui/dist/js/coreui.min.js}" type="text/javascript"></script>
-  <script th:src="@{../node_modules/@fortawesome/fontawesome-free/css/all.js}" type="text/javascript"></script>
+  <script th:src="@{../node_modules/@fortawesome/fontawesome-free/js/all.js}" type="text/javascript"></script>
   <!-- Plugins and scripts required by this view-->
-  <script th:src="@{../node_modules/chart.js/dist/Chart.min.js}" type="text/javascript"></script>
   <script th:src="@{../node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js}" type="text/javascript"></script>
   <script th:src="@{../js/main.js}" type="text/javascript"></script>
   <script th:src="@{../js/controller.js}" type="text/javascript"></script>
