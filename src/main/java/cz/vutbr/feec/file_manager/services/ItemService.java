@@ -10,17 +10,20 @@ import cz.vutbr.feec.file_manager.entities.repositories.ItemRepository;
 
 @Service
 public class ItemService {
-	
+
 	@Autowired
 	ItemRepository itemRepository;
 
 	public ItemService() {
 		super();
-
 	}
 
-	public List<Item> findAll() {
-		return itemRepository.findAll();
+	public void findAll() {
+		itemRepository.findAll();
+	}
+
+	public List<Item> getAll() {
+		return itemRepository.getAll();
 	}
 
 }

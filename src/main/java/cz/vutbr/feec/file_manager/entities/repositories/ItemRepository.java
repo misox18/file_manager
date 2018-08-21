@@ -13,14 +13,16 @@ import cz.vutbr.feec.file_manager.entities.Item;
 @Repository
 public class ItemRepository {
 
+	private final List<Item> allItems = new ArrayList<>();
+	private final String path = "D:\\Skola\\Ing\\1\\MMUM";
+			
 	public ItemRepository() {
 		super();
 	}
 
-	public List<Item> findAll() {
-		final String path = "D:\\Skola\\Ing\\1\\MMUM";
+	public void findAll() {
+		allItems.removeAll(allItems);
 		final File folder = new File(path);
-		final List<Item> allItems = new ArrayList<>();
 		for (File i : folder.listFiles()) {
 			Item item = new Item();
 
@@ -32,7 +34,9 @@ public class ItemRepository {
 
 			allItems.add(isFileOrFoleder(item, i));
 		}
-
+	}
+	
+	public List<Item> getAll() {
 		return allItems;
 	}
 
@@ -67,4 +71,5 @@ public class ItemRepository {
 
 		return size.toString() + " " + list.get(counter); 
 	}
+
 }

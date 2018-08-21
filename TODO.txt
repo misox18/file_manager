@@ -1,0 +1,12 @@
+- nacitat zdroj z nejakej zlozky
+- ukazanie spravnej cesty suboru
+- zoradenie itemov
+- prerobenie vlastnosti itemu (najlepsie asi na enumy)
+- pridanie typov itemov (obrazok, dokument...)
+- pridanie vlastnosti itemov (vytvorenie, posledna modifikacia...)
+- ulozenie suboru/zlozky
+- vymazanie suboru/zlozky
+- premenovanie suborov/zloziek
+- klikatelna folder a presunutie do nej
+- otvorenie obrazku, videa, pdf, txt...
+- zmenit logo na nejake vut

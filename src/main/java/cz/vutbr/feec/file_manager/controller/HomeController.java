@@ -18,10 +18,10 @@ public class HomeController {
 	@Autowired
 	ItemService itemService;
 	
-	@ModelAttribute("allItems")
+	/*@ModelAttribute("allItems")
 	public List<Item> modelItems(){
-		return itemService.findAll();
-	}
+		return itemService.getAll();
+	}*/
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String root() {
