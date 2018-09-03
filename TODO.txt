@@ -1,4 +1,4 @@
-- nacitat zdroj z nejakej zlozky
+- nacitat zdroj z nejakej zlozky (button/backend)
 - ukazanie spravnej cesty suboru
 - zoradenie itemov
 - prerobenie vlastnosti itemu (najlepsie asi na enumy)
