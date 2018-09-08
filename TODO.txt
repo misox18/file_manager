@@ -1,5 +1,5 @@
-- nacitat zdroj z nejakej zlozky (button/backend)
-- ukazanie spravnej cesty suboru
+- ukazanie spravnej cesty suboru (spravne v js, urobit triedu Path, kde bude String nazov disku a List<String> cesta
+skusit posielat do js tuto triedu, ak bude fungovat prerobit a popsielat na front len ItemRepository ako jeden http dotaz)
 - zoradenie itemov
 - prerobenie vlastnosti itemu (najlepsie asi na enumy)
 - pridanie typov itemov (obrazok, dokument...)
@@ -10,3 +10,4 @@
 - klikatelna folder a presunutie do nej
 - otvorenie obrazku, videa, pdf, txt...
 - zmenit logo na nejake vut
+- nacitat zdroj z nejakej zlozky (filechooser, fileexplorer) (nie je mozne kvoli bezpecnosti, dat nejaku zlozku natvrdo)

@@ -21,17 +21,12 @@
   <link th:href="@{../vendors/pace-progress/css/pace.min.css}" rel="stylesheet" type="text/css">
 </head>
 
-<body class="app header-fixed sidebar-fixed sidebar-lg-show" ng-app="app" ng-controller="controller" data-ng-init="getItems()">
+<body class="app header-fixed sidebar-fixed sidebar-lg-show" ng-app="app" ng-controller="controller" data-ng-init="getData()">
   <header class="app-header navbar navbar-expand-xl">
     <a class="navbar-brand mr-4" href="#">
       <img class="navbar-brand-full" th:src="@{../img/brand/logo.svg}" width="89" height="25" alt="CoreUI Logo">
     </a>
 
-    <ul class="nav">
-      <li class="nav-item pl-4">
-        <button class="btn btn-primary" type="button">Load folder</button>
-      </li>
-    </ul>
     <ul class="nav ml-auto mr-5">
     	<li>
       	<div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">

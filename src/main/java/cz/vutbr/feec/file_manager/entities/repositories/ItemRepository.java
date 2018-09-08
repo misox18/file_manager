@@ -1,6 +1,7 @@
 package cz.vutbr.feec.file_manager.entities.repositories;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,14 +15,22 @@ import cz.vutbr.feec.file_manager.entities.Item;
 public class ItemRepository {
 
 	private final List<Item> allItems = new ArrayList<>();
-	private final String path = "D:\\Skola\\Ing\\1\\MMUM";
+	private final List<String> splitPath = new ArrayList<>();
+	private final String path = System.getProperty("user.home");
 			
 	public ItemRepository() {
 		super();
 	}
-
-	public void findAll() {
-		allItems.removeAll(allItems);
+	
+	public List<String> getPath(){
+		splitPath.clear();
+		splitPath();
+		return splitPath;
+	}
+	
+	public List<Item> getAll() {
+		allItems.clear();
+		List<Item> tempList= new ArrayList<>();
 		final File folder = new File(path);
 		for (File i : folder.listFiles()) {
 			Item item = new Item();
@@ -32,12 +41,14 @@ public class ItemRepository {
 			item.setParent(i.getParent());
 			item.setSize(getSize(i));
 
-			allItems.add(isFileOrFoleder(item, i));
+			tempList.add(isFileOrFoleder(item, i));
 		}
-	}
-	
-	public List<Item> getAll() {
+		allItems.addAll(tempList);
 		return allItems;
+	} 
+	
+	private void splitPath() {
+		splitPath.addAll(Arrays.asList(path.split("\\\\")));
 	}
 
 	private Item isFileOrFoleder(Item item, File i) {

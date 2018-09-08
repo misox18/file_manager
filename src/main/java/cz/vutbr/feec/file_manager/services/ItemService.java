@@ -18,12 +18,12 @@ public class ItemService {
 		super();
 	}
 
-	public void findAll() {
-		itemRepository.findAll();
-	}
-
-	public List<Item> getAll() {
+	public List<Item> getItems() {
 		return itemRepository.getAll();
+	}
+	
+	public List<String> getPath(){
+		return itemRepository.getPath();
 	}
 
 }

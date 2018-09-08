@@ -16,14 +16,14 @@ public class RestHomeController {
 	@Autowired
 	ItemService itemService = new ItemService();
 	
-	@RequestMapping(value= "/findItems", method = RequestMethod.GET)
-	public void findItems() {
-		itemService.findAll();
-	}
-	
 	@RequestMapping(value= "/getItems", method = RequestMethod.GET)
 	public List<Item> getItems(){
-		return itemService.getAll();
+		return itemService.getItems();
+	}
+	
+	@RequestMapping(value= "/getPath", method = RequestMethod.GET)
+	public List<String> getPath(){
+		return itemService.getPath();
 	}
 
 }
